@@ -5,7 +5,7 @@ import pygame as pg
 class Generator:
     def __init__(self):
         self.noise_r = PerlinNoise()
-        self.noise_h = PerlinNoise()
+        self.noise_g = PerlinNoise()
         self.noise_b = PerlinNoise()
 
     def generate(self, width, height):
@@ -18,7 +18,7 @@ class Generator:
     def generate_color(self, x, y):
         actual_noise_r = self.noise_r((x / 100, y / 100))*1000
         actual_noise_g = self.noise_g((x / 100, y / 100))*1000
-        actual_noise_b = self.noise_n((x / 100, y / 100))*1000
+        actual_noise_b = self.noise_b((x / 100, y / 100))*1000
 
         color_r = actual_noise_r % 255
         color_g = actual_noise_g % 255
