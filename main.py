@@ -4,9 +4,9 @@ import pygame as pg
 
 class Generator:
     def __init__(self):
+        self.noise_r = PerlinNoise()
         self.noise_h = PerlinNoise()
-        self.noise_l = PerlinNoise()
-        self.noise_s = PerlinNoise()
+        self.noise_b = PerlinNoise()
 
     def generate(self, width, height):
         surf = pg.Surface((width, height))
@@ -16,15 +16,15 @@ class Generator:
         return surf
 
     def generate_color(self, x, y):
-        actual_noise_h = self.noise_h((x / 100, y / 100))*1000
-        actual_noise_l = self.noise_l((x / 100, y / 100))*1000
-        actual_noise_s = self.noise_s((x / 100, y / 100))*1000
+        actual_noise_r = self.noise_r((x / 100, y / 100))*1000
+        actual_noise_g = self.noise_g((x / 100, y / 100))*1000
+        actual_noise_b = self.noise_n((x / 100, y / 100))*1000
 
-        color_h = actual_noise_h % 255
-        color_l = actual_noise_l % 255
-        color_s = actual_noise_s % 255
+        color_r = actual_noise_r % 255
+        color_g = actual_noise_g % 255
+        color_b = actual_noise_b % 255
 
-        return color_h, color_l, color_s
+        return color_r, color_g, color_b
 
 
 if __name__ == '__main__':
